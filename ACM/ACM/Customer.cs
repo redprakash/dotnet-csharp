@@ -3,6 +3,15 @@ namespace ACM
 {
     public class Customer
     {
+        public Customer()
+        {
+
+        }
+        public Customer(int customerId)
+        {
+            CustomerId = customerId;
+        }
+       
         public int CustomerId { get;private set; }
         public string EmailAddress { get; set; }
         public string FirstName { get; set; }
@@ -26,19 +35,7 @@ namespace ACM
             if(string.IsNullOrWhiteSpace(LastName)) isValid = false;
             return isValid;
         }
-        public bool Save()
-        {
-            return true;
-        }
-        public Customer Retrieve(int customerId)
-        {
-            return new Customer();
-        }
-
-        public List<Customer> Retrieve()
-        {
-            return new List<Customer>();
-        }
+       
        
     }
 }
