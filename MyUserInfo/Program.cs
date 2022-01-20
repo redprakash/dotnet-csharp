@@ -4,32 +4,9 @@ namespace MyUserInfo
 {
     public class Program
     {
-        Users users = new Users();
-        public void GetUserInfo()
-        {
-            Console.WriteLine("Please enter first name");
-            users.FirstName = Console.ReadLine();
-            Console.WriteLine("Please enter last name");
-            users.LastName = Console.ReadLine();
-            Console.WriteLine("Please enter your age");
-            users.Age =  Console.ReadLine();
-            Console.WriteLine("Please enter your mobile num");
-            users.MobileNumber = Console.ReadLine();
-            Console.WriteLine("Please enter your address");
-            users.Address = Console.ReadLine();
-        }
-        public void DisplayUserInfo()
-        {
-            Console.WriteLine($"Hi, {users.FirstName} {users.LastName}");
-           
-            Console.WriteLine($"You are {users.Age} years old");
-            Console.WriteLine($"Someone can contact you on { users.MobileNumber}");
-            Console.WriteLine($"Your address is {users.Address}");
-
-        }
         static void Main(string[] args)
         {
-
+           
             Console.WriteLine("***** Welcome to User Info App ****");
             string loginUserName = "prakash";
             string loginPassword = "dotnet";
@@ -45,11 +22,12 @@ namespace MyUserInfo
                 {
                     Console.WriteLine($"Welcome {loginUserName}");
                     Console.WriteLine("------------------------------");
-                    var instanceOfProgram = new Program();
-                    instanceOfProgram.GetUserInfo();
+                    
+                    Users users = new Users();
+                    users.GetUserInfo();
                     
                     Console.WriteLine("*************** Your Details ***************");
-                    instanceOfProgram.DisplayUserInfo();
+                    users.DisplayUserInfo();
                     isValid = true;
                 }
                 else
@@ -60,10 +38,6 @@ namespace MyUserInfo
                 }
             }
 
-            
-
-
-           
         }
     }
 }
