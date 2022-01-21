@@ -12,9 +12,14 @@ namespace WooliesX.Onboarding.UserInfo.App
         private readonly string loginUserPassword = "admin";
 
         
-        public bool ValidateUser(string userName, string userPassword)
+
+        public bool ValidateUser()
         {
-            if(userName == loginUserName && userPassword == loginUserPassword)
+            Console.WriteLine("\n Please enter your username");
+            var userInputUserName = Console.ReadLine();
+            Console.WriteLine("\n Please enter your password");
+            var userInputPassword = Console.ReadLine();
+            if (userInputUserName == loginUserName && userInputPassword == loginUserPassword)
             {
                 return true;
             }

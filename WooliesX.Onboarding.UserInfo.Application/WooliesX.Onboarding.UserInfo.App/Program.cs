@@ -5,20 +5,27 @@ namespace WooliesX.Onboarding.UserInfo.App
     {
         public static void Main(string[] args)
         {
-            Console.WriteLine("\n Please enter your username");
-            var userInputUserName = Console.ReadLine();
-            Console.WriteLine("\n Please enter your password");
-            var userInputPassword = Console.ReadLine();
-
+            
             UserInfoProcessor processor = new UserInfoProcessor();
-            if(processor.ValidateUser(userInputUserName, userInputPassword))
+            Users users = new Users();
+            bool isUserValid = processor.ValidateUser();
+            if (isUserValid)
             {
-                Console.WriteLine("Validated");
+               
+                users.GetUserInfo();
+                users.DisplayUserInfo();
             }
             else
             {
-                Console.WriteLine("Invalid");
+                Console.WriteLine("Invalid Creditinals please try again");
+                processor.ValidateUser();
             }
+           
+
+            
+           
+           
+           
         }
     }
 }
