@@ -6,8 +6,8 @@ namespace WooliesX.Onboarding.UserInfo.App
         public static void Main(string[] args)
         {
             
-            UserInfoProcessor processor = new UserInfoProcessor();
-            Users users = new Users();
+            var processor = new UserInfoProcessor();
+            var users = new Users();
             bool isUserValid = processor.ValidateUser();
             if (isUserValid)
             {

@@ -6,19 +6,19 @@ using System.Threading.Tasks;
 
 namespace WooliesX.Onboarding.UserInfo.App
 {
-    internal class UserInfoProcessor
+    public class UserInfoProcessor
     {
         private readonly string loginUserName = "admin";
         private readonly string loginUserPassword = "admin";
 
-        
-
         public bool ValidateUser()
         {
+          
             Console.WriteLine("\n Please enter your username");
             var userInputUserName = Console.ReadLine();
             Console.WriteLine("\n Please enter your password");
             var userInputPassword = Console.ReadLine();
+
             if (userInputUserName == loginUserName && userInputPassword == loginUserPassword)
             {
                 return true;
@@ -26,6 +26,7 @@ namespace WooliesX.Onboarding.UserInfo.App
                 return false;
           
         }
+        
 
     }
 }

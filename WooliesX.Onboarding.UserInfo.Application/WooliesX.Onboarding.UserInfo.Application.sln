@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.32014.148
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WooliesX.Onboarding.UserInfo.App", "WooliesX.Onboarding.UserInfo.App\WooliesX.Onboarding.UserInfo.App.csproj", "{31CB195A-F473-4BC9-9E25-7541182C6284}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WooliesX.Onboarding.UserInfo.App", "WooliesX.Onboarding.UserInfo.App\WooliesX.Onboarding.UserInfo.App.csproj", "{31CB195A-F473-4BC9-9E25-7541182C6284}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UserInfo.ApplicationTest", "UserInfo.ApplicationTest\UserInfo.ApplicationTest.csproj", "{2382A3AB-9BEA-4F99-A9E5-BD6687565509}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{31CB195A-F473-4BC9-9E25-7541182C6284}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{31CB195A-F473-4BC9-9E25-7541182C6284}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{31CB195A-F473-4BC9-9E25-7541182C6284}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2382A3AB-9BEA-4F99-A9E5-BD6687565509}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2382A3AB-9BEA-4F99-A9E5-BD6687565509}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2382A3AB-9BEA-4F99-A9E5-BD6687565509}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2382A3AB-9BEA-4F99-A9E5-BD6687565509}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
