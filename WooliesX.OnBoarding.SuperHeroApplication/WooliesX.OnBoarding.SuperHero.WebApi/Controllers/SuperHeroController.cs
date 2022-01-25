@@ -22,19 +22,20 @@ namespace WooliesX.OnBoarding.SuperHero.WebApi.Controllers
             return Ok(await _context.SuperHeroes.ToListAsync());
         }
         [HttpGet("{id}")]
-        public async Task<ActionResult<SuperHero>>Get(int id)
+        public async Task<IActionResult>Get(int id)
         {
           var hero = await _context.SuperHeroes.FindAsync(id);
             if (hero == null)
-                return BadRequest("Sorry nothing found");
+                return NotFound("Sorry nothing found");
             return Ok(hero);
         }
         [HttpPost]
-        public async Task<ActionResult<List<SuperHero>>> AddHero(SuperHero hero)
+        public async Task<IActionResult> AddHero(SuperHero hero)
         {
             _context.SuperHeroes.Add(hero);
             await _context.SaveChangesAsync();
-            return Ok(await _context.SuperHeroes.ToListAsync());
+            //return Ok(await _context.SuperHeroes.ToListAsync());
+            return Ok(hero);
         } 
 
         [HttpPut]
@@ -42,9 +43,9 @@ namespace WooliesX.OnBoarding.SuperHero.WebApi.Controllers
         {
            var hero =  await _context.SuperHeroes.FindAsync(request.Id);
 
-            hero.Name = request.Name;
             if(hero == null)
-                return BadRequest("Hero not found ");
+                return NotFound("Hero not found ");
+            hero.Name = request.Name;
             hero.FirstName = request.FirstName;
             hero.LastName = request.LastName;
             hero.Place = request.Place;
@@ -53,14 +54,15 @@ namespace WooliesX.OnBoarding.SuperHero.WebApi.Controllers
         } 
 
         [HttpDelete("{id}")]
-        public async Task<ActionResult<List<SuperHero>>> DeleteHero(int id)
+        public async Task<IActionResult> DeleteHero(int id)
         {
             var hero = await _context.SuperHeroes.FindAsync(id);
             if (hero == null)
-                return BadRequest("Hero Not Found");
+                return NotFound("Hero Not Found");
             _context.SuperHeroes.Remove(hero);
             await _context.SaveChangesAsync();
-            return Ok(await _context.SuperHeroes.ToListAsync());
+            //return Ok(await _context.SuperHeroes.ToListAsync());
+            return Ok("Delted successfully");
         }
 
 
