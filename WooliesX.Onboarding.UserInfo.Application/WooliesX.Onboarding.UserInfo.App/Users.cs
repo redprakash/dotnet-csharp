@@ -34,7 +34,7 @@ namespace WooliesX.Onboarding.UserInfo.App
             {
                
                 GetUserInfo();
-                DisplayUserInfo();
+               
             }
             else
             {

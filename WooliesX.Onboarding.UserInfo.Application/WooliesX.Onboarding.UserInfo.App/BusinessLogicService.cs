@@ -14,7 +14,6 @@ namespace WooliesX.Onboarding.UserInfo.App
         {
             userInfoProcessor = _userInfoProcessor;
             userInfoProcessor.ValidateUser();
-            userInfoProcessor.GetUserInfo();
             userInfoProcessor.DisplayUserInfo();
         }
     }
