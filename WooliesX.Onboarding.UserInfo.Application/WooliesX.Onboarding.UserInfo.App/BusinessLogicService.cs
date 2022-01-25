@@ -9,10 +9,10 @@ namespace WooliesX.Onboarding.UserInfo.App
     public  class BusinessLogicService
     {
 
-        IUserInfoProcessor userInfoProcessor;
-        public BusinessLogicService(IUserInfoProcessor _userInfoProcessor)
+        private readonly IUserInfoProcessor _userInfoProcessor;
+        public BusinessLogicService(IUserInfoProcessor userInfoProcessor)
         {
-            userInfoProcessor = _userInfoProcessor;
+            _userInfoProcessor = userInfoProcessor;
             userInfoProcessor.ValidateUser();
             userInfoProcessor.DisplayUserInfo();
         }
