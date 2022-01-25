@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace WooliesX.Onboarding.UserInfo.App
 {
-    public class Users
+    public class Users : IUserInfoProcessor
     {
 
         public string? FirstName { get; set; }
@@ -19,7 +19,30 @@ namespace WooliesX.Onboarding.UserInfo.App
             get { return age; }
             set { age = value; }
         }
+        private readonly string loginUserName = "admin";
+        private readonly string loginUserPassword = "admin";
 
+        public void ValidateUser()
+        {
+
+            Console.WriteLine("\n Please enter your username");
+            var userInputUserName = Console.ReadLine();
+            Console.WriteLine("\n Please enter your password");
+            var userInputPassword = Console.ReadLine();
+
+            if (userInputUserName == loginUserName && userInputPassword == loginUserPassword)
+            {
+               
+                GetUserInfo();
+                DisplayUserInfo();
+            }
+            else
+            {
+                Console.WriteLine("Invalid Creditinals please try again");
+                ValidateUser();
+            }
+
+        }
         public void GetUserInfo()
         {
 
