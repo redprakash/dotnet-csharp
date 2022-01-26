@@ -39,7 +39,7 @@ namespace WooliesX.OnBoarding.SuperHero.WebApi.Controllers
         } 
 
         [HttpPut]
-        public async Task<ActionResult<List<SuperHero>>> UpdateHero(SuperHero request)
+        public async Task<IActionResult> UpdateHero(SuperHero request)
         {
            var hero =  await _context.SuperHeroes.FindAsync(request.Id);
 
@@ -50,7 +50,7 @@ namespace WooliesX.OnBoarding.SuperHero.WebApi.Controllers
             hero.LastName = request.LastName;
             hero.Place = request.Place;
             await _context.SaveChangesAsync();
-            return Ok(await _context.SuperHeroes.ToListAsync());
+            return Ok(request);
         } 
 
         [HttpDelete("{id}")]

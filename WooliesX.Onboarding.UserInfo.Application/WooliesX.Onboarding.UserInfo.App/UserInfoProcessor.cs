@@ -33,7 +33,7 @@ namespace WooliesX.Onboarding.UserInfo.App
         }
         public void GetUserInfo()
         {
-
+            
             Console.WriteLine("Please enter first name");
             FirstName = Console.ReadLine();
             Console.WriteLine("Please enter last name");
