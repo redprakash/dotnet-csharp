@@ -1,5 +1,7 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Options;
+using MongoDB.Driver;
 
 namespace WooliesX.OnBoarding.SuperHero.WebApi.Controllers
 {
@@ -8,60 +10,42 @@ namespace WooliesX.OnBoarding.SuperHero.WebApi.Controllers
 
     public class SuperHeroController : ControllerBase
     {
-        
-        private readonly DataContext _context;
-        public SuperHeroController(DataContext context)
-        {
-            _context = context;
-        }
+
+       
 
         [HttpGet]
-        public async Task<ActionResult<List<SuperHero>>> Get()
+        public async Task<ActionResult> Get(SuperHeroService superHeroService)
         {
-            
-            return Ok(await _context.SuperHeroes.ToListAsync());
+            await superHeroService.Get();
+            return Ok();
         }
         [HttpGet("{id}")]
-        public async Task<IActionResult>Get(int id)
+        public async Task<IActionResult>Get(string id)
         {
-          var hero = await _context.SuperHeroes.FindAsync(id);
-            if (hero == null)
+            //var hero = await _superhero.Find(sh => sh.Id == id).FirstOrDefaultAsync();
+           // if (hero == null)
                 return NotFound("Sorry nothing found");
-            return Ok(hero);
+            //return Ok(hero);
         }
         [HttpPost]
-        public async Task<IActionResult> AddHero(SuperHero hero)
+        public async Task<IActionResult> AddHero(SuperHeroService superHeroService,SuperHero hero)
         {
-            _context.SuperHeroes.Add(hero);
-            await _context.SaveChangesAsync();
-            //return Ok(await _context.SuperHeroes.ToListAsync());
-            return Ok(hero);
+           await superHeroService.AddHero(hero);
+           return Ok();
         } 
 
         [HttpPut]
-        public async Task<IActionResult> UpdateHero(SuperHero request)
+        public async Task<IActionResult> UpdateHero(string id,SuperHero request)
         {
-           var hero =  await _context.SuperHeroes.FindAsync(request.Id);
-
-            if(hero == null)
-                return NotFound("Hero not found ");
-            hero.Name = request.Name;
-            hero.FirstName = request.FirstName;
-            hero.LastName = request.LastName;
-            hero.Place = request.Place;
-            await _context.SaveChangesAsync();
+           //await _superhero.ReplaceOneAsync(sh=>sh.Id == id, request);
             return Ok(request);
+            
         } 
 
         [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteHero(int id)
+        public async Task<IActionResult> DeleteHero(string id)
         {
-            var hero = await _context.SuperHeroes.FindAsync(id);
-            if (hero == null)
-                return NotFound("Hero Not Found");
-            _context.SuperHeroes.Remove(hero);
-            await _context.SaveChangesAsync();
-            //return Ok(await _context.SuperHeroes.ToListAsync());
+           // await _superhero.DeleteOneAsync(sh=>sh.Id == id);
             return Ok("Delted successfully");
         }
 
