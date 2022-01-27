@@ -8,8 +8,8 @@ namespace WooliesX.Onboarding.UserInfo.App
 {
     public interface IUserInfoProcessor
     {
-        public void GetUserInfo();
-        public void DisplayUserInfo();
+        public string GetUserInfo();
+       
         public void ValidateUser();
     }
 }
