@@ -7,6 +7,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddLogging(x => x.AddSeq());
 builder.Services.AddSingleton<MockHub>();
 builder.Services.AddHostedService<SmsNotifierHostedService>();
+builder.Services.AddHostedService<NotificationPersisterHostedService>();
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
